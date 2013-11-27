@@ -1,0 +1,6 @@
+[submodule "vim-textobj-user"]
+	path = vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user
+[submodule "vader.vim"]
+	path = vader.vim
+	url = https://github.com/junegunn/vader.vim

@@ -1,0 +1,26 @@
+Given:
+  abc (def (ghi) jkl)
+
+Do:
+  ^canbmno
+
+Expect:
+  abc mno
+
+Given:
+  abc [def [ghi] jkl]
+
+Do:
+  ^canrmno
+
+Expect:
+  abc mno
+
+Given:
+  abc {def {ghi} jkl}
+
+Do:
+  ^canBmno
+
+Expect:
+  abc mno

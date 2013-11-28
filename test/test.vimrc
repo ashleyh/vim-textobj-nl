@@ -1,4 +1,5 @@
 set nocompatible
+syntax on
 
 " I HAVE NO IDEA WHAT I'M DOING
 let cwd = getcwd()

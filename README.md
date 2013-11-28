@@ -1,7 +1,7 @@
 Tests
 -----
 
-Run `./test.sh`. You will (hopefully) find yourself in vim with a screenful of test results.
+Run `./test/run.sh`. You will (hopefully) find yourself in vim with a screenful of test results.
 
 
 Credit

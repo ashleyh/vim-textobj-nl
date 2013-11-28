@@ -1,3 +1,4 @@
+# next a {{{
 Given:
   abc (def (ghi) jkl)
 
@@ -24,3 +25,64 @@ Do:
 
 Expect:
   abc mno
+# }}}
+
+# next i {{{
+Given:
+  abc (def (ghi) jkl)
+
+Do:
+  ^cinbmno
+
+Expect:
+  abc (mno)
+
+Given:
+  abc [def [ghi] jkl]
+
+Do:
+  ^cinrmno
+
+Expect:
+  abc [mno]
+
+Given:
+  abc {def {ghi} jkl}
+
+Do:
+  ^cinBmno
+
+Expect:
+  abc {mno}
+# }}}
+
+# corner case {{{
+
+# here is what cib does, for reference.
+Given:
+  abc (
+  jkl
+  ) ghi
+
+Do:
+  $cibjkl
+
+Expect:
+  abc (
+  jkl
+  ) ghi
+
+Given:
+  abc (
+  def
+  ) ghi
+
+Do:
+  cinbjkl
+
+Expect:
+  abc (
+  jkl
+  ) ghi
+
+# }}}

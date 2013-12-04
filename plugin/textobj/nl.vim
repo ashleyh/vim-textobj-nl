@@ -6,23 +6,26 @@ endif
 let g:loaded_textobj_nl = 1
 " }}}
 
-call textobj#user#plugin('nl', {
-\ 'round': {
-\   'select-a-function': 'textobj#nl#next_round_a',
-\   'select-a': ['anb', 'an(', 'an)'],
-\   'select-i-function': 'textobj#nl#next_round_i',
-\   'select-i': ['inb', 'in(', 'in)'],
-\ },
-\ 'square': {
-\   'select-a-function': 'textobj#nl#next_square_a',
-\   'select-a': ['anr', 'an[', 'an]'],
-\   'select-i-function': 'textobj#nl#next_square_i',
-\   'select-i': ['inr', 'in[', 'in]'],
-\ },
-\ 'curly': {
-\   'select-a-function': 'textobj#nl#next_curly_a',
-\   'select-a': ['anB', 'an{', 'an}'],
-\   'select-i-function': 'textobj#nl#next_curly_i',
-\   'select-i': ['inB', 'in{', 'in}'],
-\ },
-\})
+function s:setup()
+  let objs = {
+  \ 'round': ['b', '(', ')'],
+  \ 'square': ['r', '[', ']'],
+  \ 'curly': ['B', '{', '}'],
+  \ }
+  let settings = {}
+  for direction in ['next', 'last']
+    let dir_key = direction[0]
+    for [obj, keys] in items(objs)
+      let name = direction . '_' . obj
+      let settings[name] = {
+      \ 'select-a-function': 'textobj#nl#' . name . '_a',
+      \ 'select-a': map(copy(keys), '"a' . dir_key . '" . v:val'),
+      \ 'select-i-function': 'textobj#nl#' . name . '_i',
+      \ 'select-i': map(copy(keys), '"i' . dir_key . '" . v:val'),
+      \ }
+    endfor
+  endfor
+  call textobj#user#plugin('nl', settings)
+endfunction
+
+call s:setup()

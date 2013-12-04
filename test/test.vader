@@ -56,6 +56,64 @@ Expect:
   abc {mno}
 # }}}
 
+# last a {{{
+Given:
+  (abc) def
+
+Do:
+  $calbghi
+
+Expect:
+  ghi def
+
+Given:
+  [abc] def
+
+Do:
+  $calrghi
+
+Expect:
+  ghi def
+
+Given:
+  {abc} def
+
+Do:
+  $calBghi
+
+Expect:
+  ghi def
+# }}}
+
+# last i {{{
+Given:
+  (abc) def
+
+Do:
+  $cilbghi
+
+Expect:
+  (ghi) def
+
+Given:
+  [abc] def
+
+Do:
+  $cilrghi
+
+Expect:
+  [ghi] def
+
+Given:
+  {abc} def
+
+Do:
+  $cilBghi
+
+Expect:
+  {ghi} def
+# }}}
+
 # corner case {{{
 
 # here is what cib does, for reference.

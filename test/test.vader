@@ -144,3 +144,25 @@ Expect:
   ) ghi
 
 # }}}
+
+# quotes {{{
+Given:
+  foo "bar 
+    \"baz\"
+  "
+
+Do:
+  ^can"bat
+
+Expect:
+  foo bat
+
+Given:
+  foo "bar \"baz\""
+
+Do:
+  ^cin"bat
+
+Expect:
+  foo "bat"
+# }}}

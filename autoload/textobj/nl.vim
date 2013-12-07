@@ -95,3 +95,48 @@ function! textobj#nl#last_curly_i()
   return textobj#nl#last_obj_i('}')
 endfunction
 " }}}
+
+" quotes {{{
+function! textobj#nl#last_quote_i(quote)
+endfunction
+
+function! textobj#nl#next_quote_i(quote)
+  let old_ww = &ww
+  set ww+=h,l
+  call search(a:quote, 'ce')
+  normal! l
+  let head_pos = getpos('.')
+  call search('\\\@<!' . a:quote)  " bleurgh
+  normal! h
+  let tail_pos = getpos('.')
+  let &ww = old_ww
+  return ['v', head_pos, tail_pos]
+endfunction
+
+function! textobj#nl#last_quote_a(quote)
+endfunction
+
+function! textobj#nl#next_quote_a(quote)
+  call search(a:quote, 'ce')
+  let head_pos = getpos('.')
+  call search('\\\@<!' . a:quote)  " bleurgh
+  let tail_pos = getpos('.')
+  return ['v', head_pos, tail_pos]
+endfunction
+
+function! textobj#nl#last_double_i()
+  return textobj#nl#last_quote_i('"')
+endfunction
+
+function! textobj#nl#next_double_i()
+  return textobj#nl#next_quote_i('"')
+endfunction
+
+function! textobj#nl#last_double_a()
+  return textobj#nl#last_quote_a('"')
+endfunction
+
+function! textobj#nl#next_double_a()
+  return textobj#nl#next_quote_a('"')
+endfunction
+" }}}

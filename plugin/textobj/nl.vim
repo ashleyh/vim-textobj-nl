@@ -11,6 +11,7 @@ function s:setup()
   \ 'round': ['b', '(', ')'],
   \ 'square': ['r', '[', ']'],
   \ 'curly': ['B', '{', '}'],
+  \ 'double': ['"'],
   \ }
   let settings = {}
   for direction in ['next', 'last']

@@ -166,4 +166,27 @@ Do:
 
 Expect:
   foo "bat"
+
+Given:
+  "bar 
+    \"baz\"
+  " foo
+
+Do:
+  G$cal"bat
+
+Expect:
+  bat foo
+
+Given:
+  "
+    bar
+    \"baz\"
+  " foo
+
+Do:
+  G$cil"bat
+
+Expect:
+  "bat" foo
 # }}}

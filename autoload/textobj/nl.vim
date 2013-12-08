@@ -48,9 +48,15 @@ function! s:next_quote_i(quote)
 endfunction
 
 function! s:last_quote_a(quote)
+  call search(a:quote, 'bce')
+  let tail_pos = getpos('.')
+  call search('\\\@<!' . a:quote, 'b')  " bleurgh
+  let head_pos = getpos('.')
+  return ['v', head_pos, tail_pos]
 endfunction
 
 function! s:last_quote_i(quote)
+  return s:shrink(s:last_quote_a(a:quote))
 endfunction
 " }}}
 

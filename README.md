@@ -1,7 +1,7 @@
 vim-textobj-nl
 ==============
 
-**Please note that this plugin is currently only half-implemented (if that)**
+**Please note that this plugin is still in development**
 
 Motion for "next/last object".  "Last" here means "previous", not "final".
 Unfortunately the `p` motion was already taken for paragraphs.
@@ -58,6 +58,8 @@ Tests
 
 Run `./test/run.sh`. You will (hopefully) find yourself in vim with a screenful of test results.
 The script will try to sort out the test dependencies for you.
+
+[![Build Status](https://travis-ci.org/ashleyh/vim-textobj-nl.png?branch=master)](https://travis-ci.org/ashleyh/vim-textobj-nl)
 
 
 Credit

@@ -117,7 +117,7 @@ function! textobj#nl#last_curly_i()
 endfunction
 " }}}
 
-" quotes {{{
+" double quotes {{{
 function! textobj#nl#last_double_i()
   return s:last_quote_i('"')
 endfunction
@@ -132,6 +132,24 @@ endfunction
 
 function! textobj#nl#next_double_a()
   return s:next_quote_a('"')
+endfunction
+" }}}
+
+" single quotes {{{
+function! textobj#nl#last_single_i()
+  return s:last_quote_i("'")
+endfunction
+
+function! textobj#nl#next_single_i()
+  return s:next_quote_i("'")
+endfunction
+
+function! textobj#nl#last_single_a()
+  return s:last_quote_a("'")
+endfunction
+
+function! textobj#nl#next_single_a()
+  return s:next_quote_a("'")
 endfunction
 " }}}
 " }}}

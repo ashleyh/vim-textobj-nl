@@ -143,7 +143,7 @@ Expect:
 
 # }}}
 
-# quotes {{{
+# double quotes {{{
 Given:
   foo "bar 
     \"baz\"
@@ -189,4 +189,52 @@ Do:
 
 Expect:
   "bat" foo
+# }}}
+
+# single quotes {{{
+Given:
+  foo 'bar 
+    \'baz\'
+  '
+
+Do:
+  ^can'bat
+
+Expect:
+  foo bat
+
+Given:
+  foo '
+    bar
+    \'baz\'
+  '
+
+Do:
+  ^cin'bat
+
+Expect:
+  foo 'bat'
+
+Given:
+  'bar 
+    \'baz\'
+  ' foo
+
+Do:
+  G$cal'bat
+
+Expect:
+  bat foo
+
+Given:
+  '
+    bar
+    \'baz\'
+  ' foo
+
+Do:
+  G$cil'bat
+
+Expect:
+  'bat' foo
 # }}}

@@ -238,13 +238,3 @@ Do:
 Expect:
   'bat' foo
 # }}}
-
-# test travis works {{{
-Given:
-  foo
-
-Do:
-
-Expect:
-  bar
-#}}}

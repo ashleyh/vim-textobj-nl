@@ -139,9 +139,7 @@ Do:
   cinbjkl
 
 Expect:
-  abc (
-  jkl
-  ) ghi
+  abc (jkl) ghi
 
 # }}}
 
@@ -158,7 +156,10 @@ Expect:
   foo bat
 
 Given:
-  foo "bar \"baz\""
+  foo "
+    bar
+    \"baz\"
+  "
 
 Do:
   ^cin"bat

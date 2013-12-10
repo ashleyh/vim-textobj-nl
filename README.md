@@ -10,9 +10,10 @@ Next acts on the next object of the given type, last acts on the previous
 object of the given type.  These don't necessarily have to be in the current
 line.
 
-Currently works for `(`, `[`, `{`, and their shortcuts `b`, `r`, `B`. 
+Currently works for `(`, `[`, `{` (and their respective shortcuts `b`, `r`, `B`)
+and single- and double-quotes.
 
-Some examples (C marks cursor positions, V means visually selected):
+Some examples (`C` marks cursor positions, `V` means visually selected):
 
 ### `din'`: delete in next single quotes
 
@@ -44,7 +45,7 @@ print "hello ", name
 Installation
 ------------
 
-Depends on kana/vim-textobj-user.
+Depends on [kana/vim-textobj-user][textobj-user].
 
 If you have Vundle, you can use
 
@@ -53,14 +54,21 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'ashleyh/vim-textobj-nl'
 ```
 
+[textobj-user]: https://github.com/kana/vim-textobj-user
+
+
 Tests
 -----
 
-Run `./test/run.sh`. You will (hopefully) find yourself in vim with a screenful of test results.
-The script will try to sort out the test dependencies for you.
+There are some [tests][test-dir], written using [vader][vader].
+There is a script to run the tests at `./test/run.sh`.
+It will try to sort out the test dependencies for you.
+If you run it you will (hopefully) find yourself in vim with a screenful of test results.
 
 [![Build Status](https://travis-ci.org/ashleyh/vim-textobj-nl.png?branch=master)](https://travis-ci.org/ashleyh/vim-textobj-nl)
 
+[test-dir]: https://github.com/ashleyh/vim-textobj-nl/tree/master/test
+[vader]: https://github.com/junegunn/vader.vim
 
 Credit
 ======
